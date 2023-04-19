@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import '../web_view.dart';
 import 'business_news.dart';
+import '../full_article.dart';
 
 class ScienceNews extends StatefulWidget {
   const ScienceNews({
@@ -68,7 +69,6 @@ class _ScienceNews extends State<ScienceNews> {
                     child: const BusinessNews(),
                     type: PageTransitionType.rightToLeft,
                     duration: const Duration(seconds: 1)));
-            // return refreshed();
           },
           child: FutureBuilder(
               future: getApiCall(),

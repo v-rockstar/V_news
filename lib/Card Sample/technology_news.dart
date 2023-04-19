@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import '../web_view.dart';
+import '../full_article.dart';
 
 class TechnologyNews extends StatefulWidget {
   const TechnologyNews({

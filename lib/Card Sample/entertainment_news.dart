@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import 'package:v_news/Card%20Sample/science_news.dart';
-
 import '../web_view.dart';
+import '../full_article.dart';
 
 class EntertainmentNews extends StatefulWidget {
   const EntertainmentNews({
@@ -69,7 +69,7 @@ class _EntertainmentNews extends State<EntertainmentNews> {
                     child: const ScienceNews(),
                     type: PageTransitionType.topToBottom,
                     duration: const Duration(seconds: 1)));
-            // return refreshed();
+            
           },
           child: FutureBuilder(
               future: getApiCall(),

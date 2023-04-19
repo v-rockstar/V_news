@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import 'package:v_news/Card%20Sample/technology_news.dart';
-
+import '../full_article.dart';
 import '../web_view.dart';
 
 class BusinessNews extends StatefulWidget {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import '../full_article.dart';
+import '../web_view.dart';
 import 'entertainment_news.dart';
 
 class CardSample extends StatefulWidget {
@@ -85,7 +86,8 @@ class _PractState extends State<CardSample> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return FullArticle(
+                                      return 
+                                      FullArticle(
                                         content: content,
                                         urlToImage: urlToImage,
                                         date: date,
