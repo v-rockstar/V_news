@@ -2,20 +2,19 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
-import '../full_article.dart';
-import '../web_view.dart';
+import 'package:v_news/full_article.dart';
 import 'entertainment_news.dart';
 
-class CardSample extends StatefulWidget {
-  const CardSample({
+class SportsNews extends StatefulWidget {
+  const SportsNews({
     super.key,
   });
 
   @override
-  State<CardSample> createState() => _PractState();
+  State<SportsNews> createState() => _SportsNews();
 }
 
-class _PractState extends State<CardSample> {
+class _SportsNews extends State<SportsNews> {
   List news = [];
   late Map mapResponse;
   String? urlToImage;
@@ -74,31 +73,20 @@ class _PractState extends State<CardSample> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
-                      itemCount: news.length,
+                      itemCount: 5,
                       itemBuilder: (context, index) {
                         url = news[index]['url'] ?? 'Error';
                         content = news[index]['content'] ?? 'Error';
+
                         return SingleChildScrollView(
                           child: SizedBox(
                               height: 250,
                               child: InkWell(
                                 onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return 
-                                      FullArticle(
-                                        content: content,
-                                        urlToImage: urlToImage,
-                                        date: date,
-                                        url: url,
-                                        title: title,
-                                        source: source,
-                                      );
-                                      // WebArticle(url: url);
-                                    },
-                                  ),
-                                ),
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            FullArticle(newsIndex: index))),
                                 child: Card(
                                   elevation: 20,
                                   margin: const EdgeInsets.all(15),

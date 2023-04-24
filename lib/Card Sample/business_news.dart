@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import 'package:v_news/Card%20Sample/technology_news.dart';
+import 'package:v_news/Web%20View/business_view.dart';
 import '../full_article.dart';
-import '../web_view.dart';
 
 class BusinessNews extends StatefulWidget {
   const BusinessNews({
@@ -69,7 +69,6 @@ class _BusinessNews extends State<BusinessNews> {
                     child: const TechnologyNews(),
                     type: PageTransitionType.leftToRight,
                     duration: const Duration(seconds: 1)));
-            // return refreshed();
           },
           child: FutureBuilder(
               future: getApiCall(),
@@ -99,7 +98,9 @@ class _BusinessNews extends State<BusinessNews> {
                                                 //   title: title,
                                                 //   source: source,
                                                 // ),
-                                                WebArticle(url: url))),
+                                                WebBusinessNews(
+                                                  newsIndex: index,
+                                                ))),
                                     child: Card(
                                       elevation: 20,
                                       margin: const EdgeInsets.all(15),

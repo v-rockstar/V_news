@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
-import '../web_view.dart';
+import 'package:v_news/Web%20View/science_view.dart';
 import 'business_news.dart';
 import '../full_article.dart';
 
@@ -98,7 +98,8 @@ class _ScienceNews extends State<ScienceNews> {
                                                 //   title: title,
                                                 //   source: source,
                                                 // ),
-                                                WebArticle(url: url))),
+                                                WebScienceNews(
+                                                    newsIndex: index))),
                                     child: Card(
                                       elevation: 20,
                                       margin: const EdgeInsets.all(15),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Card Sample/card_sample.dart';
+import 'Card Sample/sports_news.dart';
 import 'Container Sample/container_sample.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CardSample(),
+                        builder: (context) => const SportsNews(),
                       ));
                 },
                 icon: const Icon(Icons.read_more),

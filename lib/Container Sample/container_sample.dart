@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import '../web_view.dart';
+import 'package:v_news/Web%20View/sports.view.dart';
 
 class ContainerSample extends StatefulWidget {
   const ContainerSample({super.key});
@@ -59,8 +59,8 @@ class _NewsPageState extends State<ContainerSample> {
                               onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => WebArticle(url: url),
-                                  )),
+                                      builder: (context) =>
+                                          WebSportsNews(newsIndex: index))),
                               child: Contents(
                                 url: news[index]['urlToImage'] ?? 'Error',
                                 text: news[index]['title'] ?? 'Error',
