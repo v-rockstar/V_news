@@ -58,9 +58,15 @@ class _ScienceNews extends State<ScienceNews> {
                 fontWeight: FontWeight.bold,
                 color: Color(0xffffffff)),
           ),
-          leading: const Icon(Icons.menu),
+          leading: const Padding(
+              padding: EdgeInsets.only(left: 18, top: 5, bottom: 5),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://yt3.ggpht.com/a/AATXAJwJBQRVWARGtmkb7EVxtIAzWe_mACMzdE5TBQ=s900-c-k-c0xffffffff-no-rj-mo'),
+              ),
+            )
         ),
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.black,
         body: RefreshIndicator(
           onRefresh: () {
             return Navigator.pushReplacement(
@@ -80,105 +86,68 @@ class _ScienceNews extends State<ScienceNews> {
                         url = news[index]['url'] ?? 'Error';
                         content = news[index]['content'] ?? 'Error';
                         return SingleChildScrollView(
-                          child: Center(
-                              child: Column(
-                            children: [
-                              SizedBox(
-                                  height: 250,
-                                  child: InkWell(
-                                    onTap: () => Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                // FullArticle(
-                                                //   content: content,
-                                                //   urlToImage: urlToImage,
-                                                //   date: date,
-                                                //   url: url,
-                                                //   title: title,
-                                                //   source: source,
-                                                // ),
-                                                WebScienceNews(
-                                                    newsIndex: index))),
-                                    child: Card(
-                                      elevation: 20,
-                                      margin: const EdgeInsets.all(15),
-                                      child: Stack(
-                                          alignment: Alignment.bottomLeft,
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      colorFilter:
-                                                          ColorFilter.mode(
-                                                              Colors.grey
-                                                                  .shade300,
-                                                              BlendMode
-                                                                  .colorBurn),
-                                                      image: NetworkImage(
-                                                          urlToImage = news[
-                                                                      index][
-                                                                  'urlToImage'] ??
-                                                              'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/breaking-news-poster-design-template-232c3f2700b91a0fd6e3a5a2e583a5da_screen.jpg?ts=1610645412'),
-                                                      fit: BoxFit.fill)),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 30,
-                                                      horizontal: 10),
-                                              child: Text(
-                                                  title = news[index]
-                                                          ['title'] ??
-                                                      'Error',
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  maxLines: 3,
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Roboto Slab',
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      color: Colors.white)),
-                                            ),
-                                            Positioned(
-                                                bottom: 10,
-                                                left: 10,
-                                                child: Row(
-                                                  children: [
-                                                    Text(
-                                                        source = news[index]
-                                                                    ['source']
-                                                                ['name'] ??
-                                                            'Error',
-                                                        style: const TextStyle(
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                'Roboto Slab',
-                                                            color:
-                                                                Colors.white)),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    ),
-                                                    Text(
-                                                        date != null
-                                                            ? 'Error'
-                                                            : news[index]
-                                                                ['publishedAt'],
-                                                        style: const TextStyle(
-                                                            fontSize: 12,
-                                                            color:
-                                                                Colors.white))
-                                                  ],
-                                                ))
-                                          ]),
+                          child: InkWell(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        WebScienceNews(newsIndex: index))),
+                            child: Card(
+                              color: Colors.grey.shade900,
+                              elevation: 15,
+                              margin: const EdgeInsets.all(15),
+                              child: Column(children: [
+                                Image(
+                                  image: NetworkImage(urlToImage = news[index]
+                                          ['urlToImage'] ??
+                                      'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/breaking-news-poster-design-template-232c3f2700b91a0fd6e3a5a2e583a5da_screen.jpg?ts=1610645412'),
+                                  fit: BoxFit.fill,
+                                  height: 270,
+                                ),
+                                const SizedBox(
+                                  height: 3,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                      title = news[index]['title'] ?? 'Error',
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 3,
+                                      style: const TextStyle(
+                                          fontFamily: 'Roboto Slab Regular',
+                                          fontSize: 20,
+                                          color: Color(0xf2f2f2f2))),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                          source = news[index]['source']
+                                                  ['name'] ??
+                                              'Error',
+                                          style: const TextStyle(
+                                              fontFamily: 'Roboto Slab Regular',
+                                              fontSize: 12,
+                                              color: Color(0xf2f2f2f2))),
                                     ),
-                                  ))
-                            ],
-                          )),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                          date = news[index]['publishedAt'] ??
+                                              'Error',
+                                          style: const TextStyle(
+                                              fontFamily: 'Roboto Slab Regular',
+                                              fontSize: 12,
+                                              color: Color(0xf2f2f2f2))),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                            ),
+                          ),
                         );
                       });
                 } else {
@@ -187,6 +156,7 @@ class _ScienceNews extends State<ScienceNews> {
                   );
                 }
               }),
+
         ));
   }
 }
