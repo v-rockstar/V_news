@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
+import 'package:v_news/Card%20Sample/entertainment_news.dart';
+import 'package:v_news/Card%20Sample/science_news.dart';
+import 'package:v_news/Web%20View/entertainment_view.dart';
 import 'package:v_news/Web%20View/sports.view.dart';
-import 'package:v_news/full_article.dart';
-import 'entertainment_news.dart';
+import '../full_article.dart';
 
 class SportsNews extends StatefulWidget {
   const SportsNews({
@@ -49,29 +51,30 @@ class _SportsNews extends State<SportsNews> {
         appBar: AppBar(
             centerTitle: true,
             elevation: 10,
-            backgroundColor: Colors.black26,
+            backgroundColor: Colors.black,
             title: const Text(
               'HEADLINES',
               style: TextStyle(
-                  fontFamily: 'Roboto Slab Bold',
+                  fontFamily: 'Roboto Slab',
                   fontSize: 29,
+                  fontWeight: FontWeight.bold,
                   color: Color(0xffffffff)),
             ),
             leading: const Padding(
-              padding: EdgeInsets.only(left: 18,top: 5,bottom: 5),
+              padding: EdgeInsets.only(left: 18, top: 5, bottom: 5),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
                     'https://yt3.ggpht.com/a/AATXAJwJBQRVWARGtmkb7EVxtIAzWe_mACMzdE5TBQ=s900-c-k-c0xffffffff-no-rj-mo'),
               ),
             )),
-        backgroundColor: Colors.black38,
+        backgroundColor: Colors.black,
         body: RefreshIndicator(
           onRefresh: () {
             return Navigator.pushReplacement(
                 context,
                 PageTransition(
                     child: const EntertainmentNews(),
-                    type: PageTransitionType.bottomToTop,
+                    type: PageTransitionType.topToBottom,
                     duration: const Duration(seconds: 1)));
           },
           child: FutureBuilder(
@@ -88,8 +91,8 @@ class _SportsNews extends State<SportsNews> {
                             onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        WebSportsNews(newsIndex: index))),
+                                    builder: (context) => WebSportsNews(
+                                        newsIndex: index))),
                             child: Card(
                               color: Colors.grey.shade900,
                               elevation: 15,

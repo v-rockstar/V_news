@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:v_news/Card%20Sample/sports_news.dart';
+import 'package:v_news/Card%20Sample/landing_page.dart';
 import 'my_homepage.dart';
 
 void main() async {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           splash: const Image(
               image: NetworkImage(
                   'https://yt3.ggpht.com/a/AATXAJwJBQRVWARGtmkb7EVxtIAzWe_mACMzdE5TBQ=s900-c-k-c0xffffffff-no-rj-mo')),
-          nextScreen: const SportsNews()),
+          nextScreen: const LandingPage()),
     );
   }
 }
