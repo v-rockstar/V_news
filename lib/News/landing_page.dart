@@ -2,13 +2,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
-import 'package:v_news/Card%20Sample/business_news.dart';
-import 'package:v_news/Card%20Sample/science_news.dart';
-import 'package:v_news/Card%20Sample/sports_news.dart';
-import 'package:v_news/Card%20Sample/technology_news.dart';
+import 'package:v_news/News/business_news.dart';
+import 'package:v_news/News/science_news.dart';
+import 'package:v_news/News/sports_news.dart';
+import 'package:v_news/News/technology_news.dart';
 import 'package:v_news/Web%20View/landing_view.dart';
-import 'package:v_news/Web%20View/sports.view.dart';
-import 'package:v_news/full_article.dart';
 import 'entertainment_news.dart';
 
 class LandingPage extends StatefulWidget {

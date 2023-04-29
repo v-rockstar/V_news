@@ -2,11 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
-import 'package:v_news/Card%20Sample/entertainment_news.dart';
-import 'package:v_news/Card%20Sample/science_news.dart';
-import 'package:v_news/Web%20View/entertainment_view.dart';
+import 'package:v_news/News/entertainment_news.dart';
 import 'package:v_news/Web%20View/sports.view.dart';
-import '../full_article.dart';
 
 class SportsNews extends StatefulWidget {
   const SportsNews({

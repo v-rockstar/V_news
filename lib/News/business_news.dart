@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
-import 'package:v_news/Card%20Sample/technology_news.dart';
+import 'package:v_news/News/technology_news.dart';
 import 'package:v_news/Web%20View/business_view.dart';
 import '../full_article.dart';
 
@@ -47,25 +47,24 @@ class _BusinessNews extends State<BusinessNews> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          elevation: 10,
-          backgroundColor: Colors.black,
-          title: const Text(
-            'HEADLINES',
-            style: TextStyle(
-                fontFamily: 'Roboto Slab',
-                fontSize: 29,
-                fontWeight: FontWeight.bold,
-                color: Color(0xffffffff)),
-          ),
-           leading: const Padding(
+            centerTitle: true,
+            elevation: 10,
+            backgroundColor: Colors.black,
+            title: const Text(
+              'HEADLINES',
+              style: TextStyle(
+                  fontFamily: 'Roboto Slab',
+                  fontSize: 29,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffffffff)),
+            ),
+            leading: const Padding(
               padding: EdgeInsets.only(left: 18, top: 5, bottom: 5),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
                     'https://yt3.ggpht.com/a/AATXAJwJBQRVWARGtmkb7EVxtIAzWe_mACMzdE5TBQ=s900-c-k-c0xffffffff-no-rj-mo'),
               ),
-            )
-        ),
+            )),
         backgroundColor: Colors.black,
         body: RefreshIndicator(
           onRefresh: () {

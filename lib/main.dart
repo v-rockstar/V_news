@@ -1,8 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:v_news/Card%20Sample/landing_page.dart';
-import 'my_homepage.dart';
+import 'package:v_news/News/landing_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
