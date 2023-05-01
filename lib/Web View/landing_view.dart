@@ -37,11 +37,6 @@ class _WebLandingNews extends State<WebLandingNews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-        extendBodyBehindAppBar: true,
         body: FutureBuilder(
             future: getApiCall(),
             builder: (context, snapshot) {
