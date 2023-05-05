@@ -36,7 +36,7 @@ class _LandingNews extends State<LandingPage> {
     CategoryItems(name: 'Technology'),
   ];
 
-  Future getApiCall() async {
+  Future<List> getApiCall() async {
     try {
       http.Response response;
       response = await http.get(Uri.parse(
@@ -89,15 +89,19 @@ class _LandingNews extends State<LandingPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Text(
-                  'Categories >>',
-                  style: TextStyle(
-                      color: Colors.amber,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 23),
-                ),
+              Builder(
+                builder: (context) {
+                  return const Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Categories >>',
+                      style: TextStyle(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 23),
+                    ),
+                  );
+                }
               ),
               SizedBox(
                   height: 70,

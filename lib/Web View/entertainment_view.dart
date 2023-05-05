@@ -37,26 +37,23 @@ class _WebEntertainmentNews extends State<WebEntertainmentNews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
         extendBodyBehindAppBar: true,
-        body: FutureBuilder(
-            future: getApiCall(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var index = widget.newsIndex;
-                return InAppWebView(
-                  initialUrlRequest:
-                      URLRequest(url: Uri.parse(news[index]['url'].toString())),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            })
-            );
+        body: SafeArea(
+          child: FutureBuilder(
+              future: getApiCall(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  var index = widget.newsIndex;
+                  return InAppWebView(
+                    initialUrlRequest: URLRequest(
+                        url: Uri.parse(news[index]['url'].toString())),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
+        ));
   }
 }

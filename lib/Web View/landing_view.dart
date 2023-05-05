@@ -37,20 +37,22 @@ class _WebLandingNews extends State<WebLandingNews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: FutureBuilder(
-            future: getApiCall(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var index = widget.newsIndex;
-                return InAppWebView(
-                  initialUrlRequest:
-                      URLRequest(url: Uri.parse(news[index]['url'].toString())),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            }));
+        body: SafeArea(
+          child: FutureBuilder(
+              future: getApiCall(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  var index = widget.newsIndex;
+                  return InAppWebView(
+                    initialUrlRequest:
+                        URLRequest(url: Uri.parse(news[index]['url'].toString())),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
+        ));
   }
 }
